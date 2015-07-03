@@ -1,0 +1,45 @@
+﻿<ContentDialog
+    x:Class="LyraAlarmApp.Views.EditAlarm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LyraAlarmApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Edit Alarm"
+    PrimaryButtonText="save"  
+    SecondaryButtonText="cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <ContentDialog.Resources>
+        <local:DayEnabledColorConverter x:Key="DayEnabledColorConverter" />
+    </ContentDialog.Resources>
+    
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <TextBox Name="email" Header="Email address"/>
+        <PasswordBox  Name="password" Header="Password"/>
+        
+        <TimePicker x:Name="timePicker" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Grid.Column="0" FontSize="15" Padding="3" Content="Mon" Foreground="{Binding Monday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="1" FontSize="15" Padding="3" Content="Tue" Foreground="{Binding Tuesday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="2" FontSize="15" Padding="3" Content="Wed" Foreground="{Binding Wednesday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="3" FontSize="15" Padding="3" Content="Thu" Foreground="{Binding Thursday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="4" FontSize="15" Padding="3" Content="Fri" Foreground="{Binding Friday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="5" FontSize="15" Padding="3" Content="Sat" Foreground="{Binding Saturday, Converter={StaticResource DayEnabledColorConverter}}" />
+            <CheckBox Grid.Column="6" FontSize="15" Padding="3" Content="Sun" Foreground="{Binding Sunday, Converter={StaticResource DayEnabledColorConverter}}" />
+        </Grid>
+    </StackPanel>
+</ContentDialog>
