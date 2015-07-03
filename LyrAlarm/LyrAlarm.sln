@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeProvider.Web", "TimeProvider\TimeProvider.Web.csproj", "{38E236E0-9D03-408A-8072-D2EC9EA8B164}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{E69A4886-3187-4711-8A0D-28819B29A7D0}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{CBDC54FB-C0AC-4481-8413-312B4CED9FB1}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\TimeProvider-WAWS-dev.json = PublishScripts\Configurations\TimeProvider-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyraAlarmApp", "LyraAlarmApp\LyraAlarmApp.csproj", "{BC68BAD6-2806-49E1-B26F-3ED87187428D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Release|ARM.ActiveCfg = Release|Any CPU
+		{38E236E0-9D03-408A-8072-D2EC9EA8B164}.Release|x86.ActiveCfg = Release|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|ARM.Build.0 = Debug|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|x86.ActiveCfg = Debug|x86
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|x86.Build.0 = Debug|x86
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Debug|x86.Deploy.0 = Debug|x86
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|ARM.ActiveCfg = Release|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|ARM.Build.0 = Release|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|ARM.Deploy.0 = Release|ARM
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|x86.ActiveCfg = Release|x86
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|x86.Build.0 = Release|x86
+		{BC68BAD6-2806-49E1-B26F-3ED87187428D}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBDC54FB-C0AC-4481-8413-312B4CED9FB1} = {E69A4886-3187-4711-8A0D-28819B29A7D0}
+	EndGlobalSection
+EndGlobal

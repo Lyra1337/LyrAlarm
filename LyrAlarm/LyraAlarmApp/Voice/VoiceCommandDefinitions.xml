@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+    <CommandSet xml:lang="de-DE">
+        <CommandPrefix>LyrAlarm</CommandPrefix>
+        <Example>wecke mich Montag um 10 Uhr</Example>
+
+        <Command Name="CreateAlarm">
+            <Example>wecke mich Montag um zehn Uhr</Example>
+            <ListenFor>wecke [mich] {dayofweek} um {time} [Uhr] [frühs] [mittags] [abends]</ListenFor>
+            <ListenFor>[stelle] Wecker [auf] [um] {time} [Uhr]</ListenFor>
+            <Feedback>Ich erstelle einen neuen Wecker für dich...</Feedback>
+            <Navigate />
+        </Command>
+
+        <Command Name="PlayLevel">
+            <Example> replay level two </Example>
+            <ListenFor> replay level {number} </ListenFor>
+            <Feedback> Going to level {number}... </Feedback>
+            <Navigate />
+        </Command>
+
+        <Command Name="PlayUnknownLevel">
+            <Example> replay level two </Example>
+            <ListenFor> [and] replay level {*} </ListenFor>
+            <Feedback> Unknown level; going to level selection... </Feedback>
+            <Navigate Target="Views/MainPage.xaml" />
+        </Command>
+
+        <PhraseList Label="dayofweek">
+            <Item>Montag</Item>
+            <Item>Dienstag</Item>
+            <Item>Mittwoch</Item>
+            <Item>Donnerstag</Item>
+            <Item>Freitag</Item>
+            <Item>Samstag</Item>
+            <Item>Sonntag</Item>
+        </PhraseList>
+
+        <PhraseList Label="time">
+            <Item>null</Item>
+            <Item>ein</Item>
+            <Item>zwei</Item>
+            <Item>drei</Item>
+            <Item>vier</Item>
+            <Item>fünf</Item>
+            <Item>sechs</Item>
+            <Item>sieben</Item>
+            <Item>acht</Item>
+            <Item>neun</Item>
+            <Item>zehn</Item>
+            <Item>elf</Item>
+            <Item>zwölf</Item>
+        </PhraseList>
+
+        <!--<PhraseTopic Label="dateTopic" Scenario="Form Filling">
+            <Subject> Date/Time </Subject>
+            <Subject> MyCustomSubject </Subject>
+        </PhraseTopic>-->
+
+    </CommandSet>
+    <CommandSet xml:lang="de-DE">
+        <CommandPrefix>Wecker</CommandPrefix>
+        <Example>wecke mich Montag um 10 Uhr</Example>
+
+        <Command Name="CreateAlarm">
+            <Example>wecke mich Montag um zehn Uhr</Example>
+            <ListenFor>wecke [mich] {dayofweek} um {time} [Uhr] [frühs] [mittags] [abends]</ListenFor>
+            <ListenFor>[stelle] Wecker [auf] [um] {time} [Uhr]</ListenFor>
+            <Feedback>Ich erstelle einen neuen Wecker für dich...</Feedback>
+            <Navigate />
+        </Command>
+
+        <Command Name="PlayLevel">
+            <Example> replay level two </Example>
+            <ListenFor> replay level {number} </ListenFor>
+            <Feedback> Going to level {number}... </Feedback>
+            <Navigate />
+        </Command>
+
+        <Command Name="PlayUnknownLevel">
+            <Example> replay level two </Example>
+            <ListenFor> [and] replay level {*} </ListenFor>
+            <Feedback> Unknown level; going to level selection... </Feedback>
+            <Navigate Target="Views/MainPage.xaml" />
+        </Command>
+
+        <PhraseList Label="dayofweek">
+            <Item>Montag</Item>
+            <Item>Dienstag</Item>
+            <Item>Mittwoch</Item>
+            <Item>Donnerstag</Item>
+            <Item>Freitag</Item>
+            <Item>Samstag</Item>
+            <Item>Sonntag</Item>
+        </PhraseList>
+
+        <PhraseList Label="time">
+            <Item>null</Item>
+            <Item>ein</Item>
+            <Item>zwei</Item>
+            <Item>drei</Item>
+            <Item>vier</Item>
+            <Item>fünf</Item>
+            <Item>sechs</Item>
+            <Item>sieben</Item>
+            <Item>acht</Item>
+            <Item>neun</Item>
+            <Item>zehn</Item>
+            <Item>elf</Item>
+            <Item>zwölf</Item>
+        </PhraseList>
+
+        <!--<PhraseTopic Label="dateTopic" Scenario="Form Filling">
+            <Subject> Date/Time </Subject>
+            <Subject> MyCustomSubject </Subject>
+        </PhraseTopic>-->
+
+    </CommandSet>
+</VoiceCommands>
+
+<!-- Example -->
+<!--
+
+    The preceding example demonstrates a hypothetical game called 'Contoso ROD3O!' which defines two
+    Commands that a user can say to either start a new game or replay one of three levels in the game.  
+    To initiate the PlayGame command, a user can say "Contoso Rodeo play  a new game" or "Contoso Rodeo
+    play new game". Either phrase will start a new game. To initiate the second Command, a user can say
+    "Contoso Rodeo replay level one", "Contoso Rodeo replay level two", or "Contoso Rodeo replay level 
+    three".
+    The second Command demonstrates how to use a PhraseList with a Command. PhraseLists can be updated 
+    dynamically by the application (e.g., if a user unlocks a new level or game or feature, you might 
+    want to allow the user to give commands for newfeatures after voice commands are already registered.)
+    The third Command demonstrates how the {*} sequence can parallel another command to recognize speech
+    that is not defined in the CommandSet.
+
+  Note:
+
+      [and] Indicates that "and" is optional. Making connecting words like this optional
+            can help both "Contoso Rodeo, play new game" and "open Contoso Rodeo and play
+            a new game" feel natural to speak.
+                 
+      {number} Defined separately from the Command, mapping to "one" or "two" or "three".
+
+-->
