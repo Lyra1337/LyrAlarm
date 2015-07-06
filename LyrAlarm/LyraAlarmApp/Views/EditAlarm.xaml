@@ -15,14 +15,14 @@
     <ContentDialog.Resources>
         <local:DayEnabledColorConverter x:Key="DayEnabledColorConverter" />
     </ContentDialog.Resources>
-    
-    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TextBox Name="email" Header="Email address"/>
-        <PasswordBox  Name="password" Header="Password"/>
-        
-        <TimePicker x:Name="timePicker" />
 
-        <Grid>
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Time" />
+            <TimePicker x:Name="timePicker" />
+        </StackPanel>
+
+        <!--<Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -40,6 +40,15 @@
             <CheckBox Grid.Column="4" FontSize="15" Padding="3" Content="Fri" Foreground="{Binding Friday, Converter={StaticResource DayEnabledColorConverter}}" />
             <CheckBox Grid.Column="5" FontSize="15" Padding="3" Content="Sat" Foreground="{Binding Saturday, Converter={StaticResource DayEnabledColorConverter}}" />
             <CheckBox Grid.Column="6" FontSize="15" Padding="3" Content="Sun" Foreground="{Binding Sunday, Converter={StaticResource DayEnabledColorConverter}}" />
-        </Grid>
+        </Grid>-->
+
+        <CheckBox Grid.Column="0" FontSize="15" Content="Monday"    IsChecked="{Binding Monday, Mode=TwoWay}"    />
+        <CheckBox Grid.Column="1" FontSize="15" Content="Tuesday"   IsChecked="{Binding Tuesday, Mode=TwoWay}"   />
+        <CheckBox Grid.Column="2" FontSize="15" Content="Wednesday" IsChecked="{Binding Wednesday}" />
+        <CheckBox Grid.Column="3" FontSize="15" Content="Thursday"  IsChecked="{Binding Thursday}"  />
+        <CheckBox Grid.Column="4" FontSize="15" Content="Friday"    IsChecked="{Binding Friday}"    />
+        <CheckBox Grid.Column="5" FontSize="15" Content="Saturday"  IsChecked="{Binding Saturday}"  />
+        <CheckBox Grid.Column="6" FontSize="15" Content="Sunday"    IsChecked="{Binding Sunday}"    />
+
     </StackPanel>
 </ContentDialog>

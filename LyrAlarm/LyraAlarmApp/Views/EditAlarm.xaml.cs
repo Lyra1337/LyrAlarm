@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using LyraAlarmApp.ViewModels;
 using Windows.Foundation;
@@ -19,8 +21,21 @@ using Windows.UI.Xaml.Navigation;
 
 namespace LyraAlarmApp.Views
 {
-    public sealed partial class EditAlarm : ContentDialog
+    public sealed partial class EditAlarm : ContentDialog, INotifyPropertyChanged
     {
+        private bool Monday
+        {
+            get
+            {
+                return this.Alarm.Monday;
+            }
+            set
+            {
+                this.Alarm.Monday = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+
         public AlarmViewModel Alarm { get; private set; }
 
         public EditAlarm(AlarmViewModel alarm)
@@ -39,5 +54,15 @@ namespace LyraAlarmApp.Views
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
