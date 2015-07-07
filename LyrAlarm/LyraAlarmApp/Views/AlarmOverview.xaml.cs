@@ -8,6 +8,7 @@ using LyraAlarmApp.ViewModels;
 using Newtonsoft.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,19 +18,16 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Web.Http;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
-
 namespace LyraAlarmApp.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class AlarmOverview : Page
     {
-        public MainPage()
+        public ObservableCollection<AlarmViewModel> Alarms { get; set; }
+
+        public AlarmOverview()
         {
             this.InitializeComponent();
-
+            this.Alarms = new ObservableCollection<AlarmViewModel>();
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
@@ -53,21 +51,34 @@ namespace LyraAlarmApp.Views
 
         private async void RefreshAlarms()
         {
+            StatusBarProgressIndicator progressbar = StatusBar.GetForCurrentView().ProgressIndicator;
+            progressbar.Text = "Loading Alarms";
+            await progressbar.ShowAsync();
+
             HttpClient client = new HttpClient();
 
-            string response = await client.GetStringAsync(new Uri("http://timeprovider.azurewebsites.net/Api.ashx?action=get-alarms"));
+            string response = await client.GetStringAsync(new Uri("https://timeprovider.azurewebsites.net/Api.ashx?action=get-alarms"));
 
+            this.Alarms.Clear();
             var alarms = JsonConvert.DeserializeObject<List<AlarmViewModel>>(response);
 
-            this.AlarmsListView.ItemsSource = alarms;
+            foreach (var alarm in alarms)
+            {
+                this.Alarms.Add(alarm);
+            }
+
+            this.AlarmsListView.ItemsSource = this.Alarms;
+
+            await progressbar.HideAsync();
         }
 
         private async void AlarmsListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            EditAlarm edit = new EditAlarm((AlarmViewModel)e.ClickedItem );
+            EditAlarm editView = new EditAlarm((AlarmViewModel)e.ClickedItem);
 
-            await edit.ShowAsync();
-            //this.Frame.Navigate(typeof(EditAlarm), e.ClickedItem);
+            await editView.ShowAsync();
+
+            this.AlarmsListView.ItemsSource = this.Alarms;
         }
     }
 }

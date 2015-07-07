@@ -19,7 +19,7 @@
     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <StackPanel Orientation="Vertical">
             <TextBlock Text="Time" />
-            <TimePicker x:Name="timePicker" />
+            <TimePicker Time="{Binding Timespan}" />
         </StackPanel>
 
         <!--<Grid>

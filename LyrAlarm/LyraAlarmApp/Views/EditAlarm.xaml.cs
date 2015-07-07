@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using LyraAlarmApp.ViewModels;
+using Newtonsoft.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage.Pickers.Provider;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Web.Http;
 
 // The Content Dialog item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -43,12 +45,22 @@ namespace LyraAlarmApp.Views
             this.InitializeComponent();
             this.Alarm = alarm;
 
-            this.timePicker.Time = TimeSpan.FromMinutes(alarm.Time);
+            this.DataContext = alarm;
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            this.Alarm.Time = (int)this.timePicker.Time.TotalMinutes;
+            string json = JsonConvert.SerializeObject(this.Alarm);
+
+            HttpClient client = new HttpClient();
+
+            HttpMultipartFormDataContent data = new HttpMultipartFormDataContent();
+
+            data.Add(new HttpStringContent(json), "alarm");
+
+            var response = await client.PostAsync(new Uri("https://timeprovider.azurewebsites.net/Api.ashx?action=set-alarm"), data);
+
+            response.ToString();
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

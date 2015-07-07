@@ -1,23 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LyraAlarmApp.ViewModels
+namespace LyrAlarm.Shared
 {
+    [DataContract]
     public class AlarmViewModel
     {
+        [DataMember]
         public Guid Guid { get; set; }
+        [DataMember]
         public int Time { get; set; }
+        [DataMember]
         public bool Monday { get; set; }
+        [DataMember]
         public bool Tuesday { get; set; }
+        [DataMember]
         public bool Wednesday { get; set; }
+        [DataMember]
         public bool Thursday { get; set; }
+        [DataMember]
         public bool Friday { get; set; }
+        [DataMember]
         public bool Saturday { get; set; }
+        [DataMember]
         public bool Sunday { get; set; }
-
+        
+        [IgnoreDataMember]
         public string TimeString
         {
             get
@@ -26,6 +37,7 @@ namespace LyraAlarmApp.ViewModels
             }
         }
 
+        [IgnoreDataMember]
         public TimeSpan Timespan
         {
             get
