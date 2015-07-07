@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
-    <CommandSet xml:lang="de-DE">
+    <!--<CommandSet xml:lang="de-DE">
         <CommandPrefix>LyrAlarm</CommandPrefix>
         <Example>wecke mich Montag um 10 Uhr</Example>
 
@@ -53,12 +53,7 @@
             <Item>zwölf</Item>
         </PhraseList>
 
-        <!--<PhraseTopic Label="dateTopic" Scenario="Form Filling">
-            <Subject> Date/Time </Subject>
-            <Subject> MyCustomSubject </Subject>
-        </PhraseTopic>-->
-
-    </CommandSet>
+    </CommandSet>-->
     <CommandSet xml:lang="de-DE">
         <CommandPrefix>Wecker</CommandPrefix>
         <Example>wecke mich Montag um 10 Uhr</Example>
