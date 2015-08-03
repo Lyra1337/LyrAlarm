@@ -69,9 +69,9 @@ namespace LyraAlarmApp.Views
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (PropertyChanged != null)
+            if (this.PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
