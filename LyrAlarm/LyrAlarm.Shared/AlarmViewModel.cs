@@ -173,7 +173,7 @@ namespace LyrAlarm.Shared
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void NotifyPropertyChanged(string propertyName)
+        public void NotifyPropertyChanged([CallerMemberName]string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
