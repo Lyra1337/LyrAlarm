@@ -36,7 +36,6 @@ namespace LyraAlarmApp
             var storageFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Voice/VoiceCommandDefinitions.xml"));
 
             await VoiceCommandManager.InstallCommandSetsFromStorageFileAsync(storageFile);
-
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
